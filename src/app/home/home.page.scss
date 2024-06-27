@@ -1,0 +1,26 @@
+.auth-buttons,
+.product-buttons {
+  margin-top: 20px;
+}
+
+.auth-buttons {
+  margin-bottom: 40px;
+}
+
+ion-button {
+  margin-bottom: 10px;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.fade-in-out {
+  animation: fadeInOut 3s ease-in-out infinite;
+  text-align: center;
+}
