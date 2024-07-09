@@ -1,3 +1,4 @@
+// auth.service.ts
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -5,6 +6,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+
+  redirectUrl: string = ''; // Propiedad para almacenar la URL de redirección
+
   constructor(private router: Router) {}
 
   register(username: string, password: string): boolean {
@@ -37,6 +41,6 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return this.getCurrentUser() !== null;
-  }
+    return this.getCurrentUser() !== null;
+  }
 }

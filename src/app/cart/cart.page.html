@@ -6,6 +6,20 @@
 
 <ion-content class="ion-padding">
   <h1>Carro de Compras</h1>
+
+  <ion-list *ngIf="cartItems.length > 0">
+    <ion-item *ngFor="let product of cartItems">
+      <ion-label>{{ product.nombre }}</ion-label>
+      <ion-label>{{ product.descripcion }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-label *ngIf="cartItems.length === 0">No hay productos en el carrito.</ion-label>
+
+  <!-- Botones de navegación -->
   <ion-button expand="full" routerLink="/products">Seguir Comprando</ion-button>
   <ion-button expand="full" routerLink="/home">Volver a Home</ion-button>
+
+  <!-- Botón de Pago -->
+  <ion-button expand="block" (click)="realizarPago()">Pagar</ion-button>
 </ion-content>

@@ -1,9 +1,9 @@
 // src/app/login/login.page.ts
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
-import { StorageService } from '../services/storage.service';
+import { Location } from '@angular/common'; // Importa el servicio Location
+
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,21 +17,22 @@ export class LoginPage {
   message: string = '';
 
   constructor(
+    private authService: AuthService,
     private router: Router,
-    private location: Location,
-    private storageService: StorageService
-  ) { }
+    private location: Location // Inyecta el servicio Location
+  ) {}
 
   login() {
-    if (this.storageService.loginUser(this.username, this.password)) {
+    if (this.authService.login(this.username, this.password)) {
       this.message = 'Inicio de sesión exitoso';
-      this.router.navigate(['/home']);
+      const redirectUrl = this.authService.redirectUrl || '/home';
+      this.router.navigateByUrl(redirectUrl);
     } else {
       this.message = 'Nombre de usuario o contraseña incorrectos';
     }
   }
 
   goBack() {
-    this.location.back();
-  }
+    this.location.back(); // Utiliza el método back() del servicio Location
+  }
 }

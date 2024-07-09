@@ -1,0 +1,14 @@
+.titulo-animado {
+  display: inline-block;
+  animation: scaleAnimation 1s ease-in-out infinite;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+

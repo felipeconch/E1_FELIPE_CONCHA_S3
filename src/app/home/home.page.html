@@ -4,8 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1 class="fade-in-out">Bienvenido a la Tienda de Ropa</h1>
+<ion-content class="ion-text-center">
+  <!-- Componente para el título con animación -->
+  <app-titulo></app-titulo>
 
   <div class="auth-buttons">
     <ion-button expand="full" routerLink="/login">Iniciar Sesión</ion-button>
@@ -17,5 +18,16 @@
     <ion-button expand="full" routerLink="/cart">Ir al Carro de Compras</ion-button>
     <ion-button expand="full" routerLink="/login">Cerrar Sesión</ion-button>
   </div>
+
+  <!-- Mostrar las categorías de comidas -->
+  <div class="meal-categories" *ngIf="mealCategories.length > 0">
+    <h2>Categorías de Comidas</h2>
+    <ion-list>
+      <ion-item *ngFor="let category of mealCategories">
+        <ion-label>{{ category.strCategory }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-label *ngIf="mealCategories.length === 0">Cargando categorías de comidas...</ion-label>
 </ion-content>
- 
