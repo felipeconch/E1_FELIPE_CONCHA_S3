@@ -1,14 +1,43 @@
-.auth-buttons,
-.product-buttons {
-  margin-top: 20px;
+ion-header {
+  position: relative;
 }
 
 .auth-buttons {
-  margin-bottom: 40px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 ion-button {
   margin-bottom: 10px;
+}
+
+ion-button[fill="clear"] {
+  --background: transparent;
+  --color: #3880ff;
+  --border-radius: 20px;
+  border: 2px solid #3880ff;
+  padding: 0 10px;
+}
+
+.product-buttons {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.custom-button {
+  --background: #3880ff;
+  --color: white;
+  --border-radius: 20px;
+  --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  --padding: 10px 20px;
+  font-size: 16px;
+}
+
+.custom-button:hover {
+  --background: #3171e0;
 }
 
 @keyframes fadeInOut {

@@ -1,4 +1,3 @@
-// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/auth.guard.service';
@@ -31,6 +30,10 @@ const routes: Routes = [
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then(m => m.CartPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'food-list',
+    loadChildren: () => import('./food-list/food-list.module').then(m => m.FoodListPageModule)
   }
 ];
 

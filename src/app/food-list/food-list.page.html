@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Comidas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Categorías de Comidas</h1>
+  <ion-list>
+    <ion-item *ngFor="let category of mealCategories">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="category.strCategoryThumb"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ category.strCategory }}</h2>
+        <p>{{ category.strCategoryDescription }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón para volver a la página de inicio -->
+  <ion-button expand="full" routerLink="/home">
+    <ion-icon slot="start" name="home"></ion-icon>
+    Volver a Inicio
+  </ion-button>
+</ion-content>
